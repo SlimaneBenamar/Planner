@@ -21,17 +21,17 @@
                 <td>{{ groupe.idGroupe }}</td>
                 <td>{{ groupe.nbrEtudiant }}</td>
                 <td>
-                    <a href="{{ path('groupe_show', {'id': groupe.id}) }}">show</a>
-                    <a href="{{ path('groupe_edit', {'id': groupe.id}) }}">edit</a>
+                    <a href="{{ path('groupe_show', {'id': groupe.id}) }}">Afficher</a>
+                    <a href="{{ path('groupe_edit', {'id': groupe.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Liste Vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('groupe_new') }}">Create new</a>
+    <a href="{{ path('groupe_new') }}">Créer un nouveau</a>
 {% endblock %}
