@@ -21,7 +21,11 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container text-center my-auto">
+            {% block body %}{% endblock %}
+        </div>
+
+        
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -31,8 +35,6 @@
                 </div>
             </footer>
             <!-- End of Footer -->
-
-
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('vendor/jquery/jquery.min.js')}}"></script>

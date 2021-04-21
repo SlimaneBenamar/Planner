@@ -28,7 +28,7 @@ class Salle
     private $codeSalle;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $capaciteSalle;
 
@@ -49,12 +49,12 @@ class Salle
         return $this;
     }
 
-    public function getcodeSalle(): ?string
+    public function getCodeSalle(): ?string
     {
-        return $this->CodeSalle;
+        return $this->codeSalle;
     }
 
-    public function setcodeSalle(string $codeSalle): self
+    public function setCodeSalle(string $codeSalle): self
     {
         $this->codeSalle = $codeSalle;
 
@@ -66,7 +66,7 @@ class Salle
         return $this->capaciteSalle;
     }
 
-    public function setCapaciteSalle(int $capaciteSalle): self
+    public function setCapaciteSalle(?int $capaciteSalle): self
     {
         $this->capaciteSalle = $capaciteSalle;
 

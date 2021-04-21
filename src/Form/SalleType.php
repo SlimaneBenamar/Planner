@@ -7,15 +7,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SalleType extends AbstractType
+class Salle1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('idSalle')
             ->add('codeSalle')
-            ->add('capaciteSalle')
-        ;
+            ->add('capaciteSalle');
     }
 
     public function configureOptions(OptionsResolver $resolver)
