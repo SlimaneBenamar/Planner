@@ -99,8 +99,10 @@ class Enseignant
 
         return $this;
     }
+
     public function __toString()
-    { 
-        return $this->nomEnseignant;
+    {
+        return $this->getNomEnseignant();
     }
+
 }
