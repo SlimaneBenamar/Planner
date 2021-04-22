@@ -17,10 +17,6 @@ class Salle
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idSalle;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -37,17 +33,8 @@ class Salle
         return $this->id;
     }
 
-    public function getIdSalle(): ?int
-    {
-        return $this->idSalle;
-    }
 
-    public function setIdSalle(int $idSalle): self
-    {
-        $this->idSalle = $idSalle;
 
-        return $this;
-    }
 
     public function getCodeSalle(): ?string
     {

@@ -12,9 +12,7 @@ class ModuleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idModule')
-            ->add('libModule')
-        ;
+            ->add('libModule');
     }
 
     public function configureOptions(OptionsResolver $resolver)

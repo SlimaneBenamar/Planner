@@ -12,11 +12,9 @@ class SeanceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idSeance')
             ->add('DateDebut')
             ->add('DateFin')
-            ->add('Type')
-        ;
+            ->add('Type');
     }
 
     public function configureOptions(OptionsResolver $resolver)

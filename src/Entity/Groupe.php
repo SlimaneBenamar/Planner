@@ -17,10 +17,6 @@ class Groupe
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idGroupe;
 
     /**
      * @ORM\Column(type="integer")
@@ -32,17 +28,6 @@ class Groupe
         return $this->id;
     }
 
-    public function getIdGroupe(): ?int
-    {
-        return $this->idGroupe;
-    }
-
-    public function setIdGroupe(int $idGroupe): self
-    {
-        $this->idGroupe = $idGroupe;
-
-        return $this;
-    }
 
     public function getNbrEtudiant(): ?int
     {

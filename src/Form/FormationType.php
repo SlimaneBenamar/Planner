@@ -12,9 +12,7 @@ class FormationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idFormation')
-            ->add('libFormation')
-        ;
+            ->add('libFormation');
     }
 
     public function configureOptions(OptionsResolver $resolver)

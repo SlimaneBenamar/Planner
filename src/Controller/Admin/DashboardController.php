@@ -7,6 +7,7 @@ use App\Entity\Formation;
 use App\Entity\Groupe;
 use App\Entity\Module;
 use App\Entity\Salle;
+use App\Entity\Seance;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -40,5 +41,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Groupes', 'fas fa-file', Groupe::class);
         yield MenuItem::linkToCrud('Modules', 'fas fa-file', Module::class);
         yield MenuItem::linkToCrud('Salles', 'fas fa-file', Salle::class);
+        yield MenuItem::linkToCrud('Séances', 'fas fa-file', Seance::class);
     }
 }

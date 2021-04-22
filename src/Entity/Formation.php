@@ -17,10 +17,6 @@ class Formation
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idFormation;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -32,17 +28,6 @@ class Formation
         return $this->id;
     }
 
-    public function getIdFormation(): ?int
-    {
-        return $this->idFormation;
-    }
-
-    public function setIdFormation(int $idFormation): self
-    {
-        $this->idFormation = $idFormation;
-
-        return $this;
-    }
 
     public function getLibFormation(): ?string
     {

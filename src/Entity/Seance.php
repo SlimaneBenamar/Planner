@@ -17,10 +17,6 @@ class Seance
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idSeance;
 
     /**
      * @ORM\Column(type="datetime")
@@ -42,17 +38,6 @@ class Seance
         return $this->id;
     }
 
-    public function getIdSeance(): ?int
-    {
-        return $this->idSeance;
-    }
-
-    public function setIdSeance(int $idSeance): self
-    {
-        $this->idSeance = $idSeance;
-
-        return $this;
-    }
 
     public function getDateDebut(): ?\DateTimeInterface
     {

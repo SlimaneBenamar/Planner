@@ -17,10 +17,6 @@ class Enseignant
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idEnseignant;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -37,17 +33,6 @@ class Enseignant
         return $this->id;
     }
 
-    public function getIdEnseignant(): ?int
-    {
-        return $this->idEnseignant;
-    }
-
-    public function setIdEnseignant(int $idEnseignant): self
-    {
-        $this->idEnseignant = $idEnseignant;
-
-        return $this;
-    }
 
     public function getNomEnseignant(): ?string
     {

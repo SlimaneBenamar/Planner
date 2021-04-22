@@ -12,10 +12,8 @@ class EnseignantType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idEnseignant')
             ->add('nomEnseignant')
-            ->add('prenomEnseignant')
-        ;
+            ->add('prenomEnseignant');
     }
 
     public function configureOptions(OptionsResolver $resolver)

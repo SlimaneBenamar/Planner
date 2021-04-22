@@ -17,10 +17,6 @@ class Module
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idModule;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -32,17 +28,7 @@ class Module
         return $this->id;
     }
 
-    public function getIdModule(): ?int
-    {
-        return $this->idModule;
-    }
 
-    public function setIdModule(int $idModule): self
-    {
-        $this->idModule = $idModule;
-
-        return $this;
-    }
 
     public function getLibModule(): ?string
     {

@@ -12,20 +12,20 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20210421114143 extends AbstractMigration
 {
-    public function getDescription() : string
+    public function getDescription(): string
     {
         return '';
     }
 
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('DROP TABLE salle');
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE salle (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, id_salle INTEGER NOT NULL, code_salle VARCHAR(50) NOT NULL COLLATE BINARY, capacite_salle INTEGER NOT NULL)');
+        $this->addSql('CREATE TABLE salle (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, code_salle VARCHAR(50) NOT NULL COLLATE BINARY, capacite_salle INTEGER NOT NULL)');
     }
 }

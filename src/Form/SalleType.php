@@ -12,7 +12,6 @@ class Salle1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('idSalle')
             ->add('codeSalle')
             ->add('capaciteSalle');
     }
