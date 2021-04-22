@@ -23,6 +23,11 @@ class Groupe
      */
     private $nbrEtudiant;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $CodeGroupe;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -37,6 +42,18 @@ class Groupe
     public function setNbrEtudiant(int $nbrEtudiant): self
     {
         $this->nbrEtudiant = $nbrEtudiant;
+
+        return $this;
+    }
+
+    public function getCodeGroupe(): ?string
+    {
+        return $this->CodeGroupe;
+    }
+
+    public function setCodeGroupe(string $CodeGroupe): self
+    {
+        $this->CodeGroupe = $CodeGroupe;
 
         return $this;
     }
