@@ -12,19 +12,15 @@
                 <td>{{ module.id }}</td>
             </tr>
             <tr>
-                <th>IdModule</th>
-                <td>{{ module.idModule }}</td>
-            </tr>
-            <tr>
                 <th>LibModule</th>
                 <td>{{ module.libModule }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('module_index') }}">Retour à la liste</a>
+    <a href="{{ path('module_index') }}">back to list</a>
 
-    <a href="{{ path('module_edit', {'id': module.id}) }}">Modifier</a>
+    <a href="{{ path('module_edit', {'id': module.id}) }}">edit</a>
 
     {{ include('module/_delete_form.html.twig') }}
 {% endblock %}

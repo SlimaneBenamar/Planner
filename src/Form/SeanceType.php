@@ -14,7 +14,12 @@ class SeanceType extends AbstractType
         $builder
             ->add('DateDebut')
             ->add('DateFin')
-            ->add('Type');
+            ->add('Type')
+            ->add('idEnseignant')
+            ->add('idFormation')
+            ->add('idModule')
+            ->add('idSalle')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

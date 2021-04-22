@@ -12,7 +12,10 @@ class GroupeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nbrEtudiant');
+            ->add('nbrEtudiant')
+            ->add('CodeGroupe')
+            ->add('salle')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -9,8 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>IdGroupe</th>
                 <th>NbrEtudiant</th>
+                <th>CodeGroupe</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,20 +18,20 @@
         {% for groupe in groupes %}
             <tr>
                 <td>{{ groupe.id }}</td>
-                <td>{{ groupe.idGroupe }}</td>
                 <td>{{ groupe.nbrEtudiant }}</td>
+                <td>{{ groupe.CodeGroupe }}</td>
                 <td>
-                    <a href="{{ path('groupe_show', {'id': groupe.id}) }}">Afficher</a>
-                    <a href="{{ path('groupe_edit', {'id': groupe.id}) }}">Modifier</a>
+                    <a href="{{ path('groupe_show', {'id': groupe.id}) }}">show</a>
+                    <a href="{{ path('groupe_edit', {'id': groupe.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">Liste Vide</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('groupe_new') }}">Créer un nouveau</a>
+    <a href="{{ path('groupe_new') }}">Create new</a>
 {% endblock %}

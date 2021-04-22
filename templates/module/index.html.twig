@@ -9,7 +9,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>IdModule</th>
                 <th>LibModule</th>
                 <th>actions</th>
             </tr>
@@ -18,20 +17,19 @@
         {% for module in modules %}
             <tr>
                 <td>{{ module.id }}</td>
-                <td>{{ module.idModule }}</td>
                 <td>{{ module.libModule }}</td>
                 <td>
-                    <a href="{{ path('module_show', {'id': module.id}) }}">Afficher</a>
-                    <a href="{{ path('module_edit', {'id': module.id}) }}">Modifier</a>
+                    <a href="{{ path('module_show', {'id': module.id}) }}">show</a>
+                    <a href="{{ path('module_edit', {'id': module.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">Liste vide</td>
+                <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('module_new') }}">Créer un nouveau</a>
+    <a href="{{ path('module_new') }}">Create new</a>
 {% endblock %}

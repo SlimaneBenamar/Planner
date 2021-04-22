@@ -12,19 +12,19 @@
                 <td>{{ groupe.id }}</td>
             </tr>
             <tr>
-                <th>IdGroupe</th>
-                <td>{{ groupe.idGroupe }}</td>
-            </tr>
-            <tr>
                 <th>NbrEtudiant</th>
                 <td>{{ groupe.nbrEtudiant }}</td>
+            </tr>
+            <tr>
+                <th>CodeGroupe</th>
+                <td>{{ groupe.CodeGroupe }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('groupe_index') }}">Retour à la liste</a>
+    <a href="{{ path('groupe_index') }}">back to list</a>
 
-    <a href="{{ path('groupe_edit', {'id': groupe.id}) }}">Modifier</a>
+    <a href="{{ path('groupe_edit', {'id': groupe.id}) }}">edit</a>
 
     {{ include('groupe/_delete_form.html.twig') }}
 {% endblock %}

@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Salle;
-use App\Form\Salle1Type;
+use App\Form\SalleType;
 use App\Repository\SalleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class SalleController extends AbstractController
     public function new(Request $request): Response
     {
         $salle = new Salle();
-        $form = $this->createForm(Salle1Type::class, $salle);
+        $form = $this->createForm(SalleType::class, $salle);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class SalleController extends AbstractController
      */
     public function edit(Request $request, Salle $salle): Response
     {
-        $form = $this->createForm(Salle1Type::class, $salle);
+        $form = $this->createForm(SalleType::class, $salle);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -13,7 +13,8 @@ class EnseignantType extends AbstractType
     {
         $builder
             ->add('nomEnseignant')
-            ->add('prenomEnseignant');
+            ->add('prenomEnseignant')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

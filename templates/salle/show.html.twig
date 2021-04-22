@@ -12,10 +12,6 @@
                 <td>{{ salle.id }}</td>
             </tr>
             <tr>
-                <th>IdSalle</th>
-                <td>{{ salle.idSalle }}</td>
-            </tr>
-            <tr>
                 <th>CodeSalle</th>
                 <td>{{ salle.codeSalle }}</td>
             </tr>
@@ -26,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('salle_index') }}">Retour à la liste</a>
+    <a href="{{ path('salle_index') }}">back to list</a>
 
-    <a href="{{ path('salle_edit', {'id': salle.id}) }}">Modifier</a>
+    <a href="{{ path('salle_edit', {'id': salle.id}) }}">edit</a>
 
     {{ include('salle/_delete_form.html.twig') }}
 {% endblock %}

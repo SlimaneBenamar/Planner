@@ -9,7 +9,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>IdSeance</th>
                 <th>DateDebut</th>
                 <th>DateFin</th>
                 <th>Type</th>
@@ -20,7 +19,6 @@
         {% for seance in seances %}
             <tr>
                 <td>{{ seance.id }}</td>
-                <td>{{ seance.idSeance }}</td>
                 <td>{{ seance.DateDebut ? seance.DateDebut|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ seance.DateFin ? seance.DateFin|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ seance.Type }}</td>
@@ -31,11 +29,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">Liste vide</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('seance_new') }}">Créer un nouveau</a>
+    <a href="{{ path('seance_new') }}">Create new</a>
 {% endblock %}

@@ -12,10 +12,6 @@
                 <td>{{ enseignant.id }}</td>
             </tr>
             <tr>
-                <th>IdEnseignant</th>
-                <td>{{ enseignant.idEnseignant }}</td>
-            </tr>
-            <tr>
                 <th>NomEnseignant</th>
                 <td>{{ enseignant.nomEnseignant }}</td>
             </tr>
@@ -26,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('enseignant_index') }}">Retour à la liste</a>
+    <a href="{{ path('enseignant_index') }}">back to list</a>
 
-    <a href="{{ path('enseignant_edit', {'id': enseignant.id}) }}">Modifier</a>
+    <a href="{{ path('enseignant_edit', {'id': enseignant.id}) }}">edit</a>
 
     {{ include('enseignant/_delete_form.html.twig') }}
 {% endblock %}
