@@ -8,6 +8,7 @@ use App\Entity\Groupe;
 use App\Entity\Module;
 use App\Entity\Salle;
 use App\Entity\Seance;
+
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -25,6 +26,7 @@ class DashboardController extends AbstractDashboardController
         $routeBuilder = $this->get(AdminUrlGenerator::class);
 
         return $this->redirect($routeBuilder->setController(SeanceCrudController::class)->generateUrl());
+
     }
 
     public function configureDashboard(): Dashboard

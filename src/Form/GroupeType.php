@@ -14,6 +14,7 @@ class GroupeType extends AbstractType
         $builder
             ->add('nbrEtudiant')
             ->add('CodeGroupe')
+            ->add('formation')
         ;
     }
 
