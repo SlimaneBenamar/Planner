@@ -3,27 +3,43 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block css %}
- <style>
- #calendrier{
-     width:80%;
-     margin:auto;
- }
- </style>
+    <style>
+        #calendrier{
+             width:80%;
+            margin:auto;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
-<div id="calendrier">
-</div>
+{{dump(data)}}
+    <div id="calendrier">
+    </div>
 {% endblock %}
 
 {% block js %}
-<script> 
-window.onload =() => {
- let calendarElt =document.querySelector("#calendrier")
- let calendar =  new FullCalendar.Calendar(calendarElt,{
-     initialView: 'dayGridMonth'
- })
- calendar.render()
-}
-</script>
+    <script> 
+        window.onload =() => {
+            let calendarElt =document.querySelector("#calendrier")
+            let calendar =  new FullCalendar.Calendar(calendarElt,{
+                initialView: 'timeGridWeek',
+                locale : 'fr',
+                timezone : 'Europe/Paris',
+                headerToolbar : {
+                    start : 'prev,next today',
+                    center : 'title',
+                    end : 'dayGridMonth,timeGridWeek,dayGridDay',
+                },
+                buttonText : {
+                    today : 'Aujourd\'hui',
+                    month : 'Mois',
+                    week : 'Semaine',
+                    day : 'Jour',
+                    list : 'Liste',
+                },
+                events: {{ data|raw }}
+            })
+        calendar.render()
+        }
+    </script>
 {% endblock %}
