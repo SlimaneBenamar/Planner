@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SeanceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +58,13 @@ class Seance
      * @ORM\JoinColumn(nullable=false)
      */
     private $idSalle;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Groupe::class, inversedBy="seances")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $groupe;
+
 
     public function getId(): ?int
     {
@@ -143,6 +152,18 @@ class Seance
     public function setIdSalle(Salle $idSalle): self
     {
         $this->idSalle = $idSalle;
+
+        return $this;
+    }
+
+    public function getGroupe(): ?Groupe
+    {
+        return $this->groupe;
+    }
+
+    public function setGroupe(?Groupe $groupe): self
+    {
+        $this->groupe = $groupe;
 
         return $this;
     }

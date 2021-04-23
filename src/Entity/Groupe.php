@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GroupeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,10 +31,22 @@ class Groupe
     private $CodeGroupe;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Salle::class, inversedBy="idGroupe")
+     * @ORM\OneToMany(targetEntity=Seance::class, mappedBy="groupe")
+     */
+    private $seances;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Formation::class, inversedBy="groupe")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $salle;
+    private $formation;
+
+    public function __construct()
+    {
+        $this->seances = new ArrayCollection();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -64,21 +78,51 @@ class Groupe
         return $this;
     }
 
-    public function getSalle(): ?Salle
-    {
-        return $this->salle;
-    }
-
-    public function setSalle(?Salle $salle): self
-    {
-        $this->salle = $salle;
-
-        return $this;
-    }
 
     public function __toString()
     {
         return $this->CodeGroupe;
     }
 
+    /**
+     * @return Collection|Seance[]
+     */
+    public function getSeances(): Collection
+    {
+        return $this->seances;
+    }
+
+    public function addSeance(Seance $seance): self
+    {
+        if (!$this->seances->contains($seance)) {
+            $this->seances[] = $seance;
+            $seance->setGroupe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeance(Seance $seance): self
+    {
+        if ($this->seances->removeElement($seance)) {
+            // set the owning side to null (unless already changed)
+            if ($seance->getGroupe() === $this) {
+                $seance->setGroupe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getFormation(): ?Formation
+    {
+        return $this->formation;
+    }
+
+    public function setFormation(?Formation $formation): self
+    {
+        $this->formation = $formation;
+
+        return $this;
+    }
 }

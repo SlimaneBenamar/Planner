@@ -30,9 +30,21 @@ class Formation
      */
     private $seances;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Module::class, mappedBy="formation")
+     */
+    private $modules;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Groupe::class, mappedBy="formation")
+     */
+    private $groupe;
+
     public function __construct()
     {
         $this->seances = new ArrayCollection();
+        $this->modules = new ArrayCollection();
+        $this->groupe = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,6 +98,66 @@ class Formation
     public function __toString()
     {
         return $this->libFormation;
+    }
+
+    /**
+     * @return Collection|Module[]
+     */
+    public function getModules(): Collection
+    {
+        return $this->modules;
+    }
+
+    public function addModule(Module $module): self
+    {
+        if (!$this->modules->contains($module)) {
+            $this->modules[] = $module;
+            $module->setFormation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeModule(Module $module): self
+    {
+        if ($this->modules->removeElement($module)) {
+            // set the owning side to null (unless already changed)
+            if ($module->getFormation() === $this) {
+                $module->setFormation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Groupe[]
+     */
+    public function getGroupe(): Collection
+    {
+        return $this->groupe;
+    }
+
+    public function addGroupe(Groupe $groupe): self
+    {
+        if (!$this->groupe->contains($groupe)) {
+            $this->groupe[] = $groupe;
+            $groupe->setFormation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroupe(Groupe $groupe): self
+    {
+        if ($this->groupe->removeElement($groupe)) {
+            // set the owning side to null (unless already changed)
+            if ($groupe->getFormation() === $this) {
+                $groupe->setFormation(null);
+            }
+        }
+
+        return $this;
     }
 
 }

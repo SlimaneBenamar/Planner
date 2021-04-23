@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Groupe;
-use App\Form\GroupeType;
+use App\Form\Groupe1Type;
 use App\Repository\GroupeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class GroupeController extends AbstractController
     public function new(Request $request): Response
     {
         $groupe = new Groupe();
-        $form = $this->createForm(GroupeType::class, $groupe);
+        $form = $this->createForm(Groupe1Type::class, $groupe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class GroupeController extends AbstractController
      */
     public function edit(Request $request, Groupe $groupe): Response
     {
-        $form = $this->createForm(GroupeType::class, $groupe);
+        $form = $this->createForm(Groupe1Type::class, $groupe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

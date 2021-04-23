@@ -2,25 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\Groupe;
+use App\Entity\Enseignant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class GroupeType extends AbstractType
+class Enseignant1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nbrEtudiant')
-            ->add('CodeGroupe')
+            ->add('nomEnseignant')
+            ->add('prenomEnseignant')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Groupe::class,
+            'data_class' => Enseignant::class,
         ]);
     }
 }

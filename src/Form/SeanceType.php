@@ -19,6 +19,7 @@ class SeanceType extends AbstractType
             ->add('idFormation')
             ->add('idModule')
             ->add('idSalle')
+            ->add('groupe')
         ;
     }
 

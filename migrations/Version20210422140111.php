@@ -23,7 +23,6 @@ final class Version20210422140111 extends AbstractMigration
         $this->addSql('CREATE TABLE if NOT EXISTS enseignant (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, nom_enseignant VARCHAR(50) NOT NULL, prenom_enseignant VARCHAR(50) NOT NULL)');
         $this->addSql('CREATE TABLE if NOT EXISTS formation (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, lib_formation VARCHAR(100) NOT NULL)');
         $this->addSql('CREATE TABLE if NOT EXISTS groupe (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, salle_id INTEGER NOT NULL, nbr_etudiant INTEGER NOT NULL, code_groupe VARCHAR(100) NOT NULL)');
-        $this->addSql('CREATE INDEX if NOT EXISTS IDX_4B98C21DC304035 ON groupe (salle_id)');
         $this->addSql('CREATE TABLE if NOT EXISTS module (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, lib_module VARCHAR(100) NOT NULL)');
         $this->addSql('CREATE TABLE if NOT EXISTS salle (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, code_salle VARCHAR(50) NOT NULL, capacite_salle INTEGER DEFAULT NULL)');
         $this->addSql('CREATE TABLE if NOT EXISTS seance (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, id_enseignant_id INTEGER NOT NULL, id_formation_id INTEGER NOT NULL, id_module_id INTEGER NOT NULL, id_salle_id INTEGER NOT NULL, date_debut DATETIME NOT NULL, date_fin DATETIME NOT NULL, type VARCHAR(50) NOT NULL)');

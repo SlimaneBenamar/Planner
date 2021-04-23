@@ -30,15 +30,6 @@ class Salle
      */
     private $capaciteSalle;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Groupe::class, mappedBy="salle")
-     */
-    private $idGroupe;
-
-    public function __construct()
-    {
-        $this->idGroupe = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -72,35 +63,7 @@ class Salle
         return $this;
     }
 
-    /**
-     * @return Collection|Groupe[]
-     */
-    public function getIdGroupe(): Collection
-    {
-        return $this->idGroupe;
-    }
 
-    public function addIdGroupe(Groupe $idGroupe): self
-    {
-        if (!$this->idGroupe->contains($idGroupe)) {
-            $this->idGroupe[] = $idGroupe;
-            $idGroupe->setSalle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIdGroupe(Groupe $idGroupe): self
-    {
-        if ($this->idGroupe->removeElement($idGroupe)) {
-            // set the owning side to null (unless already changed)
-            if ($idGroupe->getSalle() === $this) {
-                $idGroupe->setSalle(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function __toString()
     {

@@ -30,6 +30,12 @@ class Module
      */
     private $seances;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Formation::class, inversedBy="modules")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $formation;
+
     public function __construct()
     {
         $this->seances = new ArrayCollection();
@@ -87,6 +93,18 @@ class Module
     public function __toString()
     {
         return $this->libModule;
+    }
+
+    public function getFormation(): ?Formation
+    {
+        return $this->formation;
+    }
+
+    public function setFormation(?Formation $formation): self
+    {
+        $this->formation = $formation;
+
+        return $this;
     }
 
 }
