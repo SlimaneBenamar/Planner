@@ -104,7 +104,7 @@ class Salle
 
     public function __toString()
     {
-        return $this->codeSalle;
+        $infoSalle = array($this->codeSalle, "Capacité:", $this->capaciteSalle);
+        return implode(" ", $infoSalle);
     }
-
 }

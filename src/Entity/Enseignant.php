@@ -102,7 +102,7 @@ class Enseignant
 
     public function __toString()
     {
-        return $this->getNomEnseignant();
+        $nomPrenom = array($this->nomEnseignant, $this->prenomEnseignant);
+        return implode(" ", $nomPrenom);
     }
-
 }
