@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Enseignant;
-use App\Form\Enseignant1Type;
+use App\Form\EnseignantType;
 use App\Repository\EnseignantRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class EnseignantController extends AbstractController
     public function new(Request $request): Response
     {
         $enseignant = new Enseignant();
-        $form = $this->createForm(Enseignant1Type::class, $enseignant);
+        $form = $this->createForm(EnseignantType::class, $enseignant);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class EnseignantController extends AbstractController
      */
     public function edit(Request $request, Enseignant $enseignant): Response
     {
-        $form = $this->createForm(Enseignant1Type::class, $enseignant);
+        $form = $this->createForm(EnseignantType::class, $enseignant);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -83,7 +83,7 @@ class EnseignantController extends AbstractController
      */
     public function delete(Request $request, Enseignant $enseignant): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$enseignant->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $enseignant->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($enseignant);
             $entityManager->flush();

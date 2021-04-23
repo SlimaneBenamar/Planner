@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Groupe;
-use App\Form\Groupe1Type;
+use App\Form\GroupeType;
 use App\Repository\GroupeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class GroupeController extends AbstractController
     public function new(Request $request): Response
     {
         $groupe = new Groupe();
-        $form = $this->createForm(Groupe1Type::class, $groupe);
+        $form = $this->createForm(GroupeType::class, $groupe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class GroupeController extends AbstractController
      */
     public function edit(Request $request, Groupe $groupe): Response
     {
-        $form = $this->createForm(Groupe1Type::class, $groupe);
+        $form = $this->createForm(GroupeType::class, $groupe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -83,7 +83,7 @@ class GroupeController extends AbstractController
      */
     public function delete(Request $request, Groupe $groupe): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$groupe->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $groupe->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($groupe);
             $entityManager->flush();
