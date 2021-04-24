@@ -21,12 +21,12 @@ class Seance
 
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", unique=true)
      */
     private $DateDebut;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", unique=true)
      */
     private $DateFin;
 
@@ -54,16 +54,16 @@ class Seance
     private $idModule;
 
     /**
-     * @ORM\OneToOne(targetEntity=Salle::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $idSalle;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Groupe::class, inversedBy="seances")
      * @ORM\JoinColumn(nullable=false)
      */
     private $groupe;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Salle::class, inversedBy="seances")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $idSalle;
 
 
     public function getId(): ?int
@@ -144,18 +144,6 @@ class Seance
         return $this;
     }
 
-    public function getIdSalle(): ?Salle
-    {
-        return $this->idSalle;
-    }
-
-    public function setIdSalle(Salle $idSalle): self
-    {
-        $this->idSalle = $idSalle;
-
-        return $this;
-    }
-
     public function getGroupe(): ?Groupe
     {
         return $this->groupe;
@@ -164,6 +152,18 @@ class Seance
     public function setGroupe(?Groupe $groupe): self
     {
         $this->groupe = $groupe;
+
+        return $this;
+    }
+
+    public function getIdSalle(): ?Salle
+    {
+        return $this->idSalle;
+    }
+
+    public function setIdSalle(?Salle $idSalle): self
+    {
+        $this->idSalle = $idSalle;
 
         return $this;
     }

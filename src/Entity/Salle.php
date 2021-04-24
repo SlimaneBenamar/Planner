@@ -30,14 +30,21 @@ class Salle
      */
     private $capaciteSalle;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Seance::class, mappedBy="idSalle")
+     */
+    private $seances;
+
+    public function __construct()
+    {
+        $this->seances = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
-
-
 
     public function getCodeSalle(): ?string
     {
@@ -63,11 +70,39 @@ class Salle
         return $this;
     }
 
-
-
     public function __toString()
     {
         $infoSalle = array($this->codeSalle, "Capacité:", $this->capaciteSalle);
         return implode(" ", $infoSalle);
+    }
+
+    /**
+     * @return Collection|Seance[]
+     */
+    public function getSeances(): Collection
+    {
+        return $this->seances;
+    }
+
+    public function addSeance(Seance $seance): self
+    {
+        if (!$this->seances->contains($seance)) {
+            $this->seances[] = $seance;
+            $seance->setIdSalle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeance(Seance $seance): self
+    {
+        if ($this->seances->removeElement($seance)) {
+            // set the owning side to null (unless already changed)
+            if ($seance->getIdSalle() === $this) {
+                $seance->setIdSalle(null);
+            }
+        }
+
+        return $this;
     }
 }
