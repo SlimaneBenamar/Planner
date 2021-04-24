@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Module;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class ModuleCrudController extends AbstractCrudController
 {
@@ -12,14 +14,13 @@ class ModuleCrudController extends AbstractCrudController
         return Module::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            Field::new('id')->hideOnForm(),
+            Field::new('libModule'),
+            AssociationField::new('formation')
         ];
     }
-    */
 }
