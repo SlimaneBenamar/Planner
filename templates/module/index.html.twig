@@ -19,17 +19,17 @@
                 <td>{{ module.id }}</td>
                 <td>{{ module.libModule }}</td>
                 <td>
-                    <a href="{{ path('module_show', {'id': module.id}) }}">show</a>
-                    <a href="{{ path('module_edit', {'id': module.id}) }}">edit</a>
+                    <a href="{{ path('module_show', {'id': module.id}) }}">Afficher</a>
+                    <a href="{{ path('module_edit', {'id': module.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('module_new') }}">Create new</a>
+    <a href="{{ path('module_new') }}">Créer un nouveau </a>
 {% endblock %}
