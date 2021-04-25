@@ -30,16 +30,21 @@ class FormationController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $erreur = null;
         $formation = new Formation();
         $form = $this->createForm(FormationType::class, $formation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($formation);
-            $entityManager->flush();
+            try {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($formation);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('formation_index');
+                return $this->redirectToRoute('formation_index');
+            }catch(\Exception $e) {
+                $erreur = $e->getMessage();
+            }
         }
 
         return $this->render('formation/new.html.twig', [
@@ -63,18 +68,25 @@ class FormationController extends AbstractController
      */
     public function edit(Request $request, Formation $formation): Response
     {
+        $erreur = null;
         $form = $this->createForm(FormationType::class, $formation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            try {
+                $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('formation_index');
+                return $this->redirectToRoute('formation_index');
+            }catch(\Exception $e){
+                $erreur = $e->getMessage();
+            }
+
         }
 
         return $this->render('formation/edit.html.twig', [
             'formation' => $formation,
             'form' => $form->createView(),
+            'erreur' => $erreur,
         ]);
     }
 
