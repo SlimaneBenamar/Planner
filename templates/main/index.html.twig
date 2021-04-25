@@ -14,6 +14,7 @@
             width: 200px;
             margin: 0 20px 20px 0;
             font-size: 10px;
+            size: auto;
         }
         #calendrier{
             float: right;
@@ -38,6 +39,7 @@
 
             let calendar =  new FullCalendar.Calendar(calendarElt,{
                 initialView: 'timeGridWeek',
+                firstDay: 1,
                 locale : 'fr',
                 timezone : 'Europe/Paris',
                 headerToolbar : {
@@ -56,6 +58,7 @@
             });
             let calendrier =  new FullCalendar.Calendar(calendrierElt,{
                 initialView: 'dayGridMonth',
+                firstDay: 1,
                 locale : 'fr',
                 timezone : 'Europe/Paris',
                 buttonText : {
@@ -70,7 +73,6 @@
                     center : 'today',
                     end : 'next',
                 },
-                events: {{ data|raw }}
             });
         calendrier.render();
         calendar.render();
