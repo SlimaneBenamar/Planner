@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Emploi du Temps{% endblock %}
 
 {% block css %}
     <style>
@@ -12,7 +12,7 @@
         }
         #calendrierGauche{
             float:left;
-            width: 300px;
+            width: 20%;
             height: 310px;
             margin: 0 20px 20px 0;
             font-size:10px;
@@ -20,9 +20,10 @@
         }
         #calendrier{
             float: right;
-            width: 950px;
-            height: 600px;
+            width: 75%;
+            height: 620px;
             margin: 0 20px 20px 0;
+            position: relative;
         }
     </style>
 {% endblock %}
@@ -30,7 +31,6 @@
 {% block body %}
     <div id="calendrierGauche"></div>
     <div id="calendrier"></div>
-
 {% endblock %}
 
 {% block js %}
@@ -45,7 +45,7 @@
                 weekends : false,
                 timeZone: 'UTC',
                 slotMinTime: "08:00:00",
-                slotMaxTime: "20:00:00",
+                slotMaxTime: "21:00:00",
                 firstDay: 1,
                 locale : 'fr',
                 timezone : 'Europe/Paris',
@@ -87,6 +87,8 @@
             });
         calendrier.render();
         calendar.render();
+         setTimeout("jQuery('#calendar').fullCalendar( 'render' );",100)
         };  
+
     </script>
 {% endblock %}
