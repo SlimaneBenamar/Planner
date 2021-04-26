@@ -42,11 +42,13 @@
         text-decoration: none;
         display: inline-block;
         font-size: 15px;
+        margin: 0px 10px 10px 0px;   
         cursor: pointer;
         }
     </style>
 
     <a href="" class="button">Exporter en PDF</a>
+    <a href="http://127.0.0.1:8000/admin" class="button">Modifier</a>
 {% endblock %}
 
 {% block js %}
@@ -59,7 +61,10 @@
                 initialView: 'timeGridWeek',
                 allDaySlot: false,
                 weekends : false,
-                timeZone: 'UTC',
+                locale: 'nl',
+                timezone: 'local',
+                nowIndicator: true,
+                slotDuration: '00:30:00',
                 slotMinTime: "08:00:00",
                 slotMaxTime: "21:00:00",
                 firstDay: 1,
