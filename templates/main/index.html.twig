@@ -28,10 +28,8 @@
 {% endblock %}
 
 {% block body %}
-
     <div id="calendrierGauche"></div>
     <div id="calendrier"></div>
-
 {% endblock %}
 
 {% block js %}
@@ -46,7 +44,7 @@
                 weekends : false,
                 timeZone: 'UTC',
                 slotMinTime: "08:00:00",
-                slotMaxTime: "20:30:00",
+                slotMaxTime: "20:00:00",
                 firstDay: 1,
                 locale : 'fr',
                 timezone : 'Europe/Paris',
@@ -66,9 +64,8 @@
             });
             let calendrier =  new FullCalendar.Calendar(calendrierElt,{
                 initialView: 'dayGridMonth',
+                navLinks: true,
                 firstDay: 1,
-                minTime: "08:00:00",
-                maxTime: "20:00:00",
                 weekends : false,
                 locale : 'fr',
                 timezone : 'Europe/Paris',
@@ -81,9 +78,11 @@
                 },
                 headerToolbar : {
                     start : 'prev',
-                    center : 'today',
+                    center : 'today dayGridMonth',
                     end : 'next',
                 },
+                events: {{ data|raw }}
+                
             });
         calendrier.render();
         calendar.render();
