@@ -7,8 +7,7 @@
         body {
             margin: 20px 0 0 20px;
             font-size: 14px;
-            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-           
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;   
         }
         #calendrierGauche{
             float:left;
@@ -19,39 +18,26 @@
             
         }
         #calendrier{
-<<<<<<< HEAD
             width:80%;
             margin:auto;
-=======
             float: right;
             width: 950px;
             height: 600px;
             margin: 0 20px 20px 0;
->>>>>>> 39b935cfa34eb6e8320fd69257b6c1ddefe9dead
         }
     </style>
 {% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
-{{dump(data)}}    
-<div id="calendrier">
-    </div>
-=======
     <div id="calendrierGauche"></div>
     <div id="calendrier"></div>
->>>>>>> 39b935cfa34eb6e8320fd69257b6c1ddefe9dead
 {% endblock %}
 
 {% block js %}
     <script> 
         window.onload =() => {
-<<<<<<< HEAD
-            let calendarElt =document.querySelector("#calendrier")
-=======
             let calendarElt = document.querySelector("#calendrier");
             let calendrierElt = document.querySelector("#calendrierGauche");
->>>>>>> 39b935cfa34eb6e8320fd69257b6c1ddefe9dead
 
             let calendar =  new FullCalendar.Calendar(calendarElt,{
                 initialView: 'timeGridWeek',
@@ -77,11 +63,6 @@
                     list : 'Liste',
                 },
                 events: {{ data|raw }}
-<<<<<<< HEAD
-            })     
-        calendar.render()
-        }
-=======
             });
             let calendrier =  new FullCalendar.Calendar(calendrierElt,{
                 initialView: 'dayGridMonth',
@@ -108,6 +89,5 @@
         calendrier.render();
         calendar.render();
         };  
->>>>>>> 39b935cfa34eb6e8320fd69257b6c1ddefe9dead
     </script>
 {% endblock %}
