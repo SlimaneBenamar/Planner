@@ -21,13 +21,10 @@ class MainController extends AbstractController
             $cours[] = [
                 'start' => $event->getDateDebut()->format('Y-m-d H:i:s'),
                 'end' => $event->getDateFin()->format('Y-m-d H:i:s'),
-                'title' => $event->getType(),
-                'description' => $event->getIdEnseignant(),
-                'idModule' => $event->getIdModule(),
-                'idSalle' => $event->getIdSalle(),  
-                'groupe' => $event->getGroupe(),
+                'title' => $info,
             ];
         }
+
         $data = json_encode($cours);
         return $this->render('main/index.html.twig', compact('data'));
     }
