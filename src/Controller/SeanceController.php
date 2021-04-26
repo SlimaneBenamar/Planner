@@ -30,21 +30,28 @@ class SeanceController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $erreur = null;
         $seance = new Seance();
         $form = $this->createForm(SeanceType::class, $seance);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($seance);
-            $entityManager->flush();
+            try {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($seance);
+                $entityManager->flush();
 
-            return $this->redirectToRoute('seance_index');
+                return $this->redirectToRoute('seance_index');
+            }catch (\Exception $e){
+                $erreur = $e->getMessage();
+            }
+
         }
 
         return $this->render('seance/new.html.twig', [
             'seance' => $seance,
             'form' => $form->createView(),
+            'erreur' => $erreur,
         ]);
     }
 
@@ -63,18 +70,25 @@ class SeanceController extends AbstractController
      */
     public function edit(Request $request, Seance $seance): Response
     {
+        $erreur = null;
         $form = $this->createForm(SeanceType::class, $seance);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            try{
+                $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('seance_index');
+                return $this->redirectToRoute('seance_index');
+            }catch (\Exception $e){
+                $erreur = $e->getMessage();
+            }
+
         }
 
         return $this->render('seance/edit.html.twig', [
             'seance' => $seance,
             'form' => $form->createView(),
+            'erreur' => $erreur,
         ]);
     }
 

@@ -17,11 +17,12 @@ class MainController extends AbstractController
     {
         $events = $seance->findAll();
         foreach ($events as $event) {
+            $info = $event->getIdModule()->getLibModule() . " - " . $event->getIdEnseignant()->getNomEnseignant() . "  " . $event->getIdEnseignant()->getPrenomEnseignant() . " - " . $event->getIdSalle()->getCodeSalle() . " - " . $event->getGroupe()->getCodeGroupe();
             $cours[] = [
                 'start' => $event->getDateDebut()->format('Y-m-d H:i:s'),
                 'end' => $event->getDateFin()->format('Y-m-d H:i:s'),
                 'title' => $event->getType(),
-                'enseignant' => $event->getIdEnseignant(),
+                'description' => $event->getIdEnseignant(),
                 'idModule' => $event->getIdModule(),
                 'idSalle' => $event->getIdSalle(),  
                 'groupe' => $event->getGroupe(),
