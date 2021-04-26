@@ -5,15 +5,15 @@
 {% block css %}
     <style>
         #calendrier{
-             width:80%;
+            width:80%;
             margin:auto;
         }
     </style>
 {% endblock %}
 
 {% block body %}
-{{dump(data)}}
-    <div id="calendrier">
+{{dump(data)}}    
+<div id="calendrier">
     </div>
 {% endblock %}
 
@@ -21,6 +21,7 @@
     <script> 
         window.onload =() => {
             let calendarElt =document.querySelector("#calendrier")
+
             let calendar =  new FullCalendar.Calendar(calendarElt,{
                 initialView: 'timeGridWeek',
                 locale : 'fr',
@@ -29,6 +30,7 @@
                     start : 'prev,next today',
                     center : 'title',
                     end : 'dayGridMonth,timeGridWeek,dayGridDay',
+                    
                 },
                 buttonText : {
                     today : 'Aujourd\'hui',
@@ -38,7 +40,7 @@
                     list : 'Liste',
                 },
                 events: {{ data|raw }}
-            })
+            })     
         calendar.render()
         }
     </script>
