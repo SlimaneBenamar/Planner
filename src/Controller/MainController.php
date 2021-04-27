@@ -24,6 +24,7 @@ class MainController extends AbstractController
                 'title' => $info,
             ];
         }
+
         $data = json_encode($cours);
         return $this->render('main/index.html.twig', compact('data'));
     }
