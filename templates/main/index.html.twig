@@ -28,7 +28,8 @@
         }
 
         .button {
-            background-color: #1c87c9;
+            float:left;
+            background-color: white;
             border: none;
             color: white;
             padding: 10px 14px;
@@ -36,12 +37,17 @@
             text-decoration: none;
             display: inline-block;
             font-size: 15px;
-            margin: 0px 10px 10px 0px;   
+            margin: 214px 10px 10px -16px;     
             cursor: pointer;
         }
 
-        #export{
-            background-color: #1c87c9;
+        #imgButton{
+            width: 75px;
+        }
+
+        #buttonPDF{
+            float:left;
+            background-color: white;
             border: none;
             color: white;
             padding: 10px 14px;
@@ -49,8 +55,12 @@
             text-decoration: none;
             display: inline-block;
             font-size: 15px;
-            margin: 250px 10px 10px 0px;   
+            margin: 225px 10px 10px -5px;   
             cursor: pointer;
+        }
+
+        #imgPDF{
+            width: 50px;
         }
         
     </style>
@@ -61,8 +71,8 @@
     <div id="calendrierGauche"></div>
     <div id="calendrier"></div>
 
-    <button onclick="screenshot()" id="export">Exporter en PDF</button>
-    <!-- <a href="http://127.0.0.1:8000/admin" class="button">Interface Admin</a> -->
+    <div><button onclick="screenshot()" id="buttonPDF"><img id='imgPDF' src="https://zupimages.net/up/21/17/oapr.png" alt="" /></button></div>
+    <div><a href="http://127.0.0.1:8000/admin" class="button"><img id='imgButton' src="https://zupimages.net/up/21/17/st4d.png" alt="" /></a></div>
     </body>
 {% endblock %}
 
