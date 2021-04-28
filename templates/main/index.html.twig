@@ -21,16 +21,12 @@
         }
         #calendrier{
             float: right;
-            width: 1150px;
+            width: 75%;
             height: 620px;
             margin: 0 20px 20px 0;
             position: relative;
         }
-    </style>
-{% endblock %}
 
-{% block body %}
-    <style>
         .button {
             background-color: #1c87c9;
             border: none;
@@ -53,37 +49,21 @@
             text-decoration: none;
             display: inline-block;
             font-size: 15px;
-            margin: 0px 10px 10px 0px;   
+            margin: 250px 10px 10px 0px;   
             cursor: pointer;
         }
-
+        
     </style>
+{% endblock %}
 
+{% block body %}
     <body>
     <div id="calendrierGauche"></div>
     <div id="calendrier"></div>
-    
 
     <button onclick="screenshot()" id="export">Exporter en PDF</button>
-    <a href="http://127.0.0.1:8000/admin" class="button">Modifier</a>
+    <!-- <a href="http://127.0.0.1:8000/admin" class="button">Interface Admin</a> -->
     </body>
-
-    <script module='html2canvas' src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
-    <script module='jspdf' src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-
-    <script>
-
-        function screenshot() {
-            html2canvas(document.getElementById('calendrier')).then(function(canvas){
-                //document.body.appendChild(canvas)
-                var img = canvas.toDataURL("image/png")
-                var doc = new jsPDF()
-                doc.addImage(img, 'PNG', 0, 5, 210, 120)
-                doc.save("Emploi du temps.pdf")
-            })
-        }   
-        
-    </script>
 {% endblock %}
 
 {% block js %}
@@ -143,5 +123,20 @@
         calendrier.render();
         calendar.render();
         };  
+    </script>
+
+    <script module='html2canvas' src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script module='jspdf' src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+    <script>
+        function screenshot() {
+            html2canvas(document.getElementById('calendrier')).then(function(canvas){
+                //document.body.appendChild(canvas)
+                var img = canvas.toDataURL("image/png")
+                var doc = new jsPDF()
+                doc.addImage(img, 'PNG', 0, 5, 210, 120)
+                doc.save("Emploi du temps.pdf")
+            })
+        }   
     </script>
 {% endblock %}
