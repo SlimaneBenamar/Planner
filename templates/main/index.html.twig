@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Emploi du Temps{% endblock %}
 
 {% block css %}
@@ -20,7 +21,7 @@
         }
         #calendrier{
             float: right;
-            width: 75%;
+            width: 1150px;
             height: 620px;
             margin: 0 20px 20px 0;
             position: relative;
@@ -29,26 +30,60 @@
 {% endblock %}
 
 {% block body %}
+    <style>
+        .button {
+            background-color: #1c87c9;
+            border: none;
+            color: white;
+            padding: 10px 14px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 0px 10px 10px 0px;   
+            cursor: pointer;
+        }
+
+        #export{
+            background-color: #1c87c9;
+            border: none;
+            color: white;
+            padding: 10px 14px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            margin: 0px 10px 10px 0px;   
+            cursor: pointer;
+        }
+
+    </style>
+
+    <body>
     <div id="calendrierGauche"></div>
     <div id="calendrier"></div>
     
-    <style>
-    .button {
-        background-color: #1c87c9;
-        border: none;
-        color: white;
-        padding: 10px 14px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 15px;
-        margin: 0px 10px 10px 0px;   
-        cursor: pointer;
-        }
-    </style>
 
-    <a href="" class="button">Exporter en PDF</a>
+    <button onclick="screenshot()" id="export">Exporter en PDF</button>
     <a href="http://127.0.0.1:8000/admin" class="button">Modifier</a>
+    </body>
+
+    <script module='html2canvas' src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script module='jspdf' src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+    <script>
+
+        function screenshot() {
+            html2canvas(document.getElementById('calendrier')).then(function(canvas){
+                //document.body.appendChild(canvas)
+                var img = canvas.toDataURL("image/png")
+                var doc = new jsPDF()
+                doc.addImage(img, 'PNG', 0, 5, 210, 120)
+                doc.save("Emploi du temps.pdf")
+            })
+        }   
+        
+    </script>
 {% endblock %}
 
 {% block js %}
